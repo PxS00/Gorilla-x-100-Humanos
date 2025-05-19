@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(to bottom, #004949, #0c2e2c);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+header {
+    background-color: #064c44;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+#status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.status-box {
+    background-color: #013a35;
+    border: 2px solid #00ffaa;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 200px;
+}
+
+#actions {
+    margin: 1.5rem 0;
+}
+
+#actions button {
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#actions button:hover {
+    background-color: #ffa500;
+}
+
+#battlefield {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+#gorila-area img {
+    width: 150px;
+}
+
+#humanos-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.humano-img {
+    width: 30px;
+    margin: 2px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.humano-derrotado {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+#log {
+    background-color: #022723;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 2px dashed #00ffaa;
+}
+
+#log-texto p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
