@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gorila vs 100 Humanos</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>🦍 Gorila x 100 Humanos</h1>
+      <h1>🦍 Gorila x 100 Humanos</h1>
     </header>
 
     <main>
-        <section id="status-bar">
-            <div class="status-box">
-                <p>❤️ Vida do Gorila: <span id="vida-gorila">100</span></p>
-            </div>
-            <div class="status-box">
-                <p>🧍‍♂️ Humanos restantes: <span id="humanos-restantes">100</span></p>
-            </div>
-        </section>
+      <section id="status-bar">
+        <div class="status-box">
+          <p>❤️ Vida do Gorila: <span id="vida-gorila">100</span></p>
+        </div>
+        <div class="status-box">
+          <p>🧍‍♂️ Humanos restantes: <span id="humanos-restantes">100</span></p>
+        </div>
+      </section>
 
-        <section id="actions">
-            <button id="btn-atacar">Atacar</button>
-            <button id="btn-defender">Defender</button>
-            <button id="btn-curar">Curar</button>
-        </section>
+      <section id="actions">
+        <button id="btn-atacar">Atacar</button>
+        <button id="btn-defender">Defender</button>
+      </section>
 
+      <div class="game-container">
         <section id="battlefield">
-            <div id="gorila-area">
-                <img src="assets/img/gorilla.jpg" alt="Gorila" class="gorila">
-            </div>
-            <div id="humanos-area">
-                <!-- Os humanos serão renderizados aqui pelo JS futuramente -->
-            </div>
+          <div id="gorila-area">
+            <img
+              id="imagem-gorila"
+              src="assets/img/gorilla.png"
+              alt="Gorila"
+              class="gorila"
+            />
+          </div>
+          <div id="humanos-area">
+            <!-- Os humanos serão renderizados aqui pelo JS futuramente -->
+          </div>
         </section>
 
         <section id="log">
-            <h2>📜 Registro da Batalha</h2>
-            <div id="log-texto"></div>
+          <h2>📜 Registro da Batalha</h2>
+          <div id="log-texto"></div>
         </section>
+      </div>
     </main>
-</body>
+  </body>
 </html>
