@@ -356,3 +356,50 @@ function iniciarComNickname() {
 
 // Inicializa o jogo quando a janela carregar
 window.onload = iniciarComNickname;
+
+/**
+ * Gorila se cura
+ */
+function curar() {
+  // Muda a imagem para um gesto de cura (se tiver)
+  if (imagemGorila) {
+    imagemGorila.src = "assets/gif/cura.gif"; // Você pode criar ou adicionar essa imagem
+    imagemGorila.style.transform = "scale(1.1)";
+    setTimeout(() => {
+      imagemGorila.style.transform = "scale(1)";
+    }, 300);
+  }
+
+  const cura = Math.floor(Math.random() * 8) + 5; // Cura entre 5-12 de vida
+  const vidaAntes = vidaGorila;
+  vidaGorila = Math.min(VIDA_MAXIMA, vidaGorila + cura);
+  const vidaRecuperada = vidaGorila - vidaAntes;
+
+  adicionarLog(`❤️ Gorila se curou e recuperou ${vidaRecuperada} de vida!`);
+  atualizarStatus();
+  salvarEstado();
+
+  // Humanos atacam depois da cura
+  setTimeout(humanosAtacam, 1000);
+
+  // Volta para a imagem normal após 1 segundo
+  setTimeout(() => {
+    if (imagemGorila) {
+      imagemGorila.src = "assets/img/gorilla.png";
+    }
+  }, 1000);
+}
+
+function configurarEventos() {
+  document.getElementById("btn-atacar").addEventListener("click", () => {
+    atacar();
+    setTimeout(humanosAtacam, 1000);
+  });
+  document.getElementById("btn-defender").addEventListener("click", () => {
+    defender();
+    setTimeout(humanosAtacam, 1000);
+  });
+  document.getElementById("btn-curar").addEventListener("click", () => {
+    curar();
+  });
+}
