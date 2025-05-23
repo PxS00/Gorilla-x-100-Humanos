@@ -147,7 +147,7 @@ function humanosAtacam() {
   if (humanosVivos.length > 0 && vidaGorila > 0) {
     let danoTotal = 0;
     // Ajusta a chance de ataque dos humanos
-    const chanceAtaque = Math.min(0.08, humanosVivos.length * 0.0008); // Chance reduzida e aumenta mais lentamente
+    const chanceAtaque = Math.min(0.08, humanosVivos.length * 0.008); // Chance reduzida e aumenta mais lentamente
     for (let humano of humanosVivos) {
       if (Math.random() < chanceAtaque) {
         // Ajusta o dano base dos humanos
@@ -157,7 +157,7 @@ function humanosAtacam() {
     }
 
     // Limita o dano total máximo por turno
-    danoTotal = Math.min(danoTotal, 8); // Máximo de 8 de dano por turno
+    danoTotal = Math.min(danoTotal, 13); // Máximo de 13 de dano por turno
 
     // Aplica o dano reduzido se o gorila estiver defendendo
     const danoFinal = Math.max(0, danoTotal - reducaoDano);
@@ -363,7 +363,7 @@ window.onload = iniciarComNickname;
 function curar() {
   // Muda a imagem para um gesto de cura (se tiver)
   if (imagemGorila) {
-    imagemGorila.src = "assets/gif/cura.gif"; // Você pode criar ou adicionar essa imagem
+    imagemGorila.src = "assets/img/curando.jpeg"; // Você pode criar ou adicionar essa imagem
     imagemGorila.style.transform = "scale(1.1)";
     setTimeout(() => {
       imagemGorila.style.transform = "scale(1)";
