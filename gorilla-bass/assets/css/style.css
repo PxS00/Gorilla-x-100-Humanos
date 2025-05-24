@@ -101,8 +101,6 @@ main.game-container {
 }
 
 #actions button {
-  background-color: #ffd700;
-  color: #000;
   border: none;
   padding: 12px;
   font-size: 16px;
@@ -124,6 +122,8 @@ main.game-container {
   align-items: center;
   justify-content: center;
   min-height: 60px;
+  color: white;
+  font-weight: bold;
 }
 
 #actions button::before {
@@ -133,7 +133,6 @@ main.game-container {
   left: 2px;
   right: 2px;
   bottom: 2px;
-  background: #ffd700;
   clip-path: polygon(
     0% 20%,
     20% 0%,
@@ -147,14 +146,31 @@ main.game-container {
   z-index: -1;
 }
 
-#actions button img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+#btn-atacar {
+  background-color: #ff2600;
+}
+
+#btn-atacar::before {
+  background-color: #ff4d4d;
+}
+
+#btn-defender {
+  background-color: #0066ff;
+}
+
+#btn-defender::before {
+  background-color: #3399ff;
+}
+
+#btn-curar {
+  background-color: #00cc00;
+}
+
+#btn-curar::before {
+  background-color: #33ff33;
 }
 
 #actions button:hover:not(:disabled) {
-  background-color: #ffa500;
   transform: translateY(-2px) scale(1.05);
 }
 
@@ -164,10 +180,13 @@ main.game-container {
 
 #actions button:disabled {
   background-color: #666;
-  color: #999;
   cursor: not-allowed;
   transform: none;
   opacity: 0.7;
+}
+
+#actions button:disabled::before {
+  background-color: #666;
 }
 
 #actions button.desabilitado {
@@ -176,6 +195,13 @@ main.game-container {
 
 #actions button.hidden {
   display: none;
+}
+
+#actions button img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 #restart-section {
@@ -222,11 +248,11 @@ main.game-container {
   gap: 8px;
 }
 
-#battlefield #gorila-area img{
+#battlefield #gorila-area img {
   width: 400px;
   max-height: 400px;
   object-fit: contain;
-} 
+}
 #gorila-area {
   position: relative;
   width: 100%;
