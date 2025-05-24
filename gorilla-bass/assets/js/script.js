@@ -196,12 +196,14 @@ document.addEventListener("DOMContentLoaded", () => {
         jogoEncerrado = true;
         emAcao = true;
         toggleBotoes(true);
+        trocarImagem(document.getElementById("imagem-gorila-derrota"));
         adicionarLog("💀 Gorila derrotado! Fim do jogo.");
         restartSection.classList.remove("hidden");
       } else if (humanosVivos === 0) {
         jogoEncerrado = true;
         emAcao = true;
         toggleBotoes(true);
+        trocarImagem(document.getElementById("imagem-gorila-vitoria"));
         adicionarLog("🏆 Todos os humanos foram eliminados! O gorila venceu.");
         restartSection.classList.remove("hidden");
       }

@@ -15,25 +15,31 @@
     <main class="game-container">
       <section id="status-bar">
         <div class="status-box">
-          <p class="status-item">
-            <strong class="emoji">❤️</strong>
-            <strong class="label">Vida do Gorila:</strong>
-            <strong id="vida-gorila" class="value">100</strong>
-          </p>
+          <div class="status-item">
+            <span class="emoji">❤️</span>
+            <span class="label">Vida do Gorila</span>
+            <span class="value" id="vida-gorila">100</span>
+          </div>
         </div>
         <div class="status-box">
-          <p class="status-item">
-            <strong class="emoji">🧍‍♂️</strong>
-            <strong class="label">Humanos restantes:</strong>
-            <strong id="humanos-restantes" class="value">100</strong>
-          </p>
+          <div class="status-item">
+            <span class="emoji">🧍‍♂️</span>
+            <span class="label">Humanos Restantes</span>
+            <span class="value" id="humanos-restantes">100</span>
+          </div>
         </div>
       </section>
 
       <section id="actions">
-        <button id="btn-atacar">Atacar</button>
-        <button id="btn-defender">Defender</button>
-        <button id="btn-curar">Curar</button>
+        <button id="btn-atacar">
+          <img src="assets/img/botao/btn-soco.png" alt="Atacar" />
+        </button>
+        <button id="btn-defender">
+          <img src="assets/img/botao/btn-defesa.png" alt="Defender" />
+        </button>
+        <button id="btn-curar">
+          <img src="assets/img/botao/btn-cura.png" alt="Curar" />
+        </button>
       </section>
 
       <section id="restart-section" class="hidden">
@@ -44,26 +50,38 @@
         <div id="gorila-area">
           <img
             id="imagem-gorila"
-            src="assets/img/gorilla.png"
+            src="assets/img/gorila/gorila.png"
             alt="Gorila"
             class="gorila ativo"
           />
           <img
             id="imagem-gorila-soco"
-            src="assets/img/soco.png"
-            alt="Gorila Atacando"
+            src="assets/img/gorila/gorila-soco.png"
+            alt="Gorila Socando"
             class="gorila"
           />
           <img
             id="imagem-gorila-defendendo"
-            src="assets/img/defendendo.png"
+            src="assets/img/gorila/gorila-defesa.png"
             alt="Gorila Defendendo"
             class="gorila"
           />
           <img
             id="imagem-gorila-curando"
-            src="assets/img/curando.jpeg"
+            src="assets/img/gorila/gorila-cura.jpeg"
             alt="Gorila Curando"
+            class="gorila"
+          />
+          <img
+            id="imagem-gorila-vitoria"
+            src="assets/img/gorila/gorila-vitoria.png"
+            alt="Gorila Vitorioso"
+            class="gorila"
+          />
+          <img
+            id="imagem-gorila-derrota"
+            src="assets/img/gorila/gorila-derrota.png"
+            alt="Gorila Derrotado"
             class="gorila"
           />
         </div>
