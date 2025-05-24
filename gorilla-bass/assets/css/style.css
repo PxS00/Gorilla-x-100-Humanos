@@ -103,13 +103,25 @@ main.game-container {
   width: 100%;
 }
 
-#actions button:hover {
+#actions button:hover:not(:disabled) {
   background-color: #ffa500;
   transform: translateY(-2px);
 }
 
-#actions button:active {
+#actions button:active:not(:disabled) {
   transform: translateY(0);
+}
+
+#actions button:disabled {
+  background-color: #666;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}
+
+#actions button.desabilitado {
+  pointer-events: none;
 }
 
 #battlefield {
