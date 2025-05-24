@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <!-- Configurações básicas do documento -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gorila vs 100 Humanos</title>
+    <!-- Importação dos arquivos CSS e JavaScript -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <script defer src="assets/js/script.js"></script>
   </head>
   <body>
+    <!-- Cabeçalho do jogo com o título principal -->
     <header>
       <h1>🦍 Gorila x 100 Humanos 🧍‍♂️</h1>
     </header>
 
+    <!-- Container principal do jogo -->
     <main class="game-container">
+      <!-- Barra de status mostrando vida do gorila e humanos restantes -->
       <section id="status-bar">
         <div class="status-box">
           <div class="status-item">
@@ -30,6 +35,7 @@
         </div>
       </section>
 
+      <!-- Seção dos botões de ação do jogador -->
       <section id="actions">
         <button id="btn-atacar">
           <img src="assets/img/botao/btn-soco.png" alt="Atacar" />
@@ -42,11 +48,14 @@
         </button>
       </section>
 
+      <!-- Seção do botão de reiniciar (inicialmente oculta) -->
       <section id="restart-section" class="hidden">
         <button id="btn-reiniciar">Reiniciar Jogo</button>
       </section>
 
+      <!-- Área de batalha onde o gorila e os humanos são exibidos -->
       <section id="battlefield">
+        <!-- Área do gorila com diferentes estados de animação -->
         <div id="gorila-area">
           <img
             id="imagem-gorila"
@@ -85,11 +94,13 @@
             class="gorila"
           />
         </div>
+        <!-- Área onde os humanos serão renderizados dinamicamente via JavaScript -->
         <div id="humanos-area">
           <!-- Humanos renderizados dinamicamente -->
         </div>
       </section>
 
+      <!-- Seção de log que mostra o histórico de ações da batalha -->
       <section id="log">
         <h2>📜 Registro da Batalha</h2>
         <div id="log-texto"></div>

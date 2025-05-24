@@ -1,15 +1,19 @@
+/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
+/* Remove margens e paddings padrão e usa box-sizing border-box para todos os elementos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Configura altura total da viewport e previne scroll */
 html,
 body {
   height: 100vh;
   overflow: hidden;
 }
 
+/* Estilo base do body com gradiente de fundo e layout flexível */
 body {
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(to bottom, #004949, #0c2e2c);
@@ -20,6 +24,8 @@ body {
   flex-direction: column;
 }
 
+/* ===== CABEÇALHO ===== */
+/* Estilização do cabeçalho com sombra e cor de fundo */
 header {
   background-color: #064c44;
   padding: 8px;
@@ -27,21 +33,25 @@ header {
   margin-bottom: 8px;
 }
 
+/* Título principal com cor dourada */
 h1 {
   font-size: 20px;
   color: #ffd700;
 }
 
+/* ===== CONTAINER PRINCIPAL DO JOGO ===== */
+/* Container flexível para organizar os elementos do jogo */
 main.game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   flex: 1;
-  overflow: hidden;
   padding: 4px;
 }
 
+/* ===== BARRA DE STATUS ===== */
+/* Container flexível para os indicadores de status */
 #status-bar {
   display: flex;
   flex-direction: column;
@@ -51,6 +61,7 @@ main.game-container {
   width: 100%;
 }
 
+/* Caixa de status com borda e fundo */
 .status-box {
   background-color: #013a35;
   border: 2px solid #00ffaa;
@@ -65,6 +76,7 @@ main.game-container {
   justify-content: center;
 }
 
+/* Item de status com emoji, label e valor */
 .status-item {
   display: flex;
   flex-direction: row;
@@ -74,23 +86,27 @@ main.game-container {
   white-space: nowrap;
 }
 
+/* Tamanho e estilo do emoji */
 .status-item .emoji {
   font-size: 18px;
   flex-shrink: 0;
 }
 
+/* Label do status com cor ciano */
 .status-item .label {
   font-size: 14px;
   color: #00ffaa;
   flex-shrink: 0;
 }
 
+/* Valor do status com cor dourada */
 .status-item .value {
   font-size: 16px;
   color: #ffd700;
   flex-shrink: 0;
 }
 
+/* ===== BOTÕES DE AÇÃO ===== */
 /* Container dos botões de ação */
 #actions {
   margin: 8px 0;
@@ -217,6 +233,8 @@ main.game-container {
   filter: brightness(0) invert(1); /* Torna os ícones brancos */
 }
 
+/* ===== SEÇÃO DE REINÍCIO ===== */
+/* Container do botão de reiniciar */
 #restart-section {
   width: 100%;
   max-width: 300px;
@@ -224,251 +242,232 @@ main.game-container {
   text-align: center;
 }
 
+/* Esconde a seção de reinício */
 #restart-section.hidden {
   display: none;
 }
 
+/* Estilo do botão de reiniciar */
 #btn-reiniciar {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #ffd700;
+  color: #000;
   border: none;
   padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Efeito hover do botão de reiniciar */
 #btn-reiniciar:hover:not(:disabled) {
-  background-color: #c0392b;
+  background-color: #ffed4a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Efeito active do botão de reiniciar */
 #btn-reiniciar:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== ÁREA DE BATALHA ===== */
+/* Container da área de batalha */
 #battlefield {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
   width: 100%;
-  max-width: 400px;
-  gap: 8px;
+  padding: 8px;
 }
 
-#battlefield #gorila-area img {
-  width: 400px;
-  max-height: 400px;
-  object-fit: contain;
-}
+/* Área do gorila */
 #gorila-area {
   position: relative;
-  width: 100%;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 250px;
 }
 
+/* Estilo base das imagens do gorila */
 .gorila {
-  width: 250px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: none;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
+/* Imagem ativa do gorila */
 .gorila.ativo {
   display: block;
 }
 
-#humanos-area {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2px;
-  padding: 8px;
-}
-
-.humano-img {
-  width: 25px;
-  height: 25px;
-  object-fit: contain;
-  filter: drop-shadow(1px 1px 1px black);
-  transition: all 0.3s ease;
-}
-
-.humano-derrotado {
-  opacity: 0.3;
-  filter: grayscale(100%);
-  transform: scale(0.9);
-}
-
+/* ===== SEÇÃO DE LOG ===== */
+/* Container do log de batalha */
 #log {
-  background-color: #022723;
-  padding: 8px;
-  border-radius: 8px;
-  border: 2px dashed #00ffaa;
   width: 100%;
-  max-width: 500px;
-  text-align: center;
-  height: 120px;
-  max-height: 130px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  max-width: 340px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 8px;
 }
 
+/* Título do log */
 #log h2 {
-  text-align: center;
   font-size: 16px;
-  margin-bottom: 6px;
   color: #ffd700;
-  flex-shrink: 0;
-  width: 100%;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
+/* Área de texto do log */
 #log-texto {
+  max-height: 150px;
   overflow-y: auto;
-  padding-right: 6px;
-  flex: 1;
-  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
+/* Parágrafos do log */
 #log-texto p {
   margin: 4px 0;
-  font-size: 13px;
-  line-height: 1.2;
+  color: #fff;
 }
 
+/* Estilização da barra de rolagem do log */
 #log-texto::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
+/* Trilho da barra de rolagem */
 #log-texto::-webkit-scrollbar-track {
-  background: #013a35;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
+/* Alça da barra de rolagem */
 #log-texto::-webkit-scrollbar-thumb {
-  background-color: #00ffaa;
+  background: #00ffaa;
   border-radius: 4px;
-  border: 2px solid #013a35;
 }
 
-/* Estilos para telas maiores que 600px */
+/* ===== MEDIA QUERIES ===== */
+/* Ajustes para telas maiores que 600px */
 @media (min-width: 600px) {
+  /* Ajustes no body */
   body {
     padding: 8px;
   }
 
+  /* Ajustes no cabeçalho */
   header {
     padding: 12px;
     margin-bottom: 12px;
   }
 
+  /* Ajustes no título */
   h1 {
     font-size: 24px;
   }
 
+  /* Ajustes no container principal */
   main.game-container {
     gap: 16px;
     padding: 8px;
   }
 
+  /* Ajustes na barra de status */
   #status-bar {
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 8px 0;
+    gap: 16px;
   }
 
+  /* Ajustes nas caixas de status */
   .status-box {
-    min-width: 320px;
+    min-width: 200px;
   }
 
+  /* Ajustes nos itens de status */
   .status-item {
     gap: 12px;
   }
 
+  /* Ajustes nos emojis */
   .status-item .emoji {
-    font-size: 20px;
+    font-size: 24px;
   }
 
+  /* Ajustes nos labels */
   .status-item .label {
     font-size: 16px;
   }
 
+  /* Ajustes nos valores */
   .status-item .value {
-    font-size: 18px;
+    font-size: 20px;
   }
 
+  /* Ajustes nos botões de ação */
   #actions {
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin: 12px 0;
     max-width: 600px;
   }
 
+  /* Ajustes nos botões */
   #actions button {
-    padding: 16px;
-    font-size: 18px;
-    width: auto;
-    min-width: 120px;
+    min-height: 80px;
   }
 
+  /* Ajustes nos ícones */
   #actions button img {
     width: 40px;
     height: 40px;
   }
 
+  /* Ajustes na seção de reinício */
   #restart-section {
     max-width: 400px;
-    margin: 12px auto;
   }
 
+  /* Ajustes no botão de reiniciar */
   #btn-reiniciar {
-    padding: 12px 32px;
-    font-size: 20px;
+    padding: 16px 32px;
+    font-size: 18px;
   }
 
+  /* Ajustes na área de batalha */
   #battlefield {
-    max-width: 500px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
   }
 
+  /* Ajustes nas imagens do gorila */
   .gorila {
     width: 250px;
+    height: 250px;
   }
 
-  .humano-img {
-    width: 30px;
-    height: 30px;
-  }
-
+  /* Ajustes no log */
   #log {
-    padding: 12px;
-    max-width: 700px;
-    height: 120px;
-    max-height: 130px;
+    max-width: 600px;
   }
 
+  /* Ajustes no título do log */
   #log h2 {
     font-size: 18px;
-    margin-bottom: 8px;
   }
 
+  /* Ajustes nos parágrafos do log */
   #log-texto p {
-    margin: 6px 0;
-    font-size: 14px;
-    line-height: 1.3;
+    font-size: 16px;
   }
 }
