@@ -222,6 +222,11 @@ main.game-container {
   gap: 8px;
 }
 
+#battlefield #gorila-area img{
+  width: 400px;
+  max-height: 400px;
+  object-fit: contain;
+} 
 #gorila-area {
   position: relative;
   width: 100%;
