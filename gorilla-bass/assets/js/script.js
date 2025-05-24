@@ -403,3 +403,24 @@ function configurarEventos() {
     curar();
   });
 }
+const somCura = new Audio("assets/audio/cura.wav"); 
+const somDefesa = new Audio("assets/audio/defesa.ogg"); 
+const somSoco = new Audio("assets/audio/soco.wav"); 
+
+
+document.getElementById("btn-atacar").addEventListener("click", () => {
+  somSoco.play();       // toca o som
+  atacar();
+  setTimeout(humanosAtacam, 1000);
+});
+
+document.getElementById("btn-defender").addEventListener("click", () => {
+  somDefesa.play();
+  defender();
+  setTimeout(humanosAtacam, 1000);
+});
+
+document.getElementById("btn-curar").addEventListener("click", () => {
+  somCura.play();
+  curar();
+});
