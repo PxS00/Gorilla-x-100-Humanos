@@ -37,7 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     logBatalha.innerHTML = "";
 
     // Resetar imagens
-    trocarImagem(imgGorila);
+    const todasImagens = document.querySelectorAll(".gorila");
+    todasImagens.forEach((img) => {
+      img.classList.remove("ativo");
+    });
+    document.getElementById("imagem-gorila").classList.add("ativo");
 
     // Atualizar interface
     atualizarStatus();
