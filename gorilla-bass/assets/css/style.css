@@ -15,20 +15,20 @@ body {
   background: linear-gradient(to bottom, #004949, #0c2e2c);
   color: #fff;
   text-align: center;
-  padding: 0.5rem;
+  padding: 4px;
   display: flex;
   flex-direction: column;
 }
 
 header {
   background-color: #064c44;
-  padding: 0.75rem;
+  padding: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: 0.75rem;
+  margin-bottom: 8px;
 }
 
 h1 {
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #ffd700;
 }
 
@@ -36,17 +36,17 @@ main.game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 12px;
   flex: 1;
-  overflow: auto;
-  padding: 0.5rem;
+  overflow: hidden;
+  padding: 4px;
 }
 
 #status-bar {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin: 0.75rem 0;
+  gap: 8px;
+  margin: 4px 0;
   align-items: center;
   width: 100%;
 }
@@ -65,28 +65,28 @@ main.game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 2px;
 }
 
 .status-item .emoji {
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .status-item .label {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #00ffaa;
 }
 
 .status-item .value {
-  font-size: 1.1rem;
+  font-size: 16px;
   color: #ffd700;
 }
 
 #actions {
-  margin: 1rem 0;
+  margin: 8px 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 8px;
   width: 100%;
   max-width: 300px;
 }
@@ -95,9 +95,9 @@ main.game-container {
   background-color: #ffd700;
   color: #000;
   border: none;
-  padding: 0.75rem;
+  padding: 8px;
   border-radius: 4px;
-  font-size: 1.1rem;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
@@ -131,7 +131,7 @@ main.game-container {
 #restart-section {
   width: 100%;
   max-width: 300px;
-  margin: 1rem auto;
+  margin: 8px auto;
   text-align: center;
 }
 
@@ -143,9 +143,9 @@ main.game-container {
   background-color: #e74c3c;
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 12px 24px;
   border-radius: 8px;
-  font-size: 1.2rem;
+  font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
@@ -169,7 +169,7 @@ main.game-container {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  gap: 1rem;
+  gap: 8px;
 }
 
 #gorila-area {
@@ -197,7 +197,7 @@ main.game-container {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2px;
-  padding: 0.5rem;
+  padding: 8px;
 }
 
 .humano-img {
@@ -216,7 +216,7 @@ main.game-container {
 
 #log {
   background-color: #022723;
-  padding: 0.75rem;
+  padding: 8px;
   border-radius: 8px;
   border: 2px dashed #00ffaa;
   width: 100%;
@@ -233,8 +233,8 @@ main.game-container {
 
 #log h2 {
   text-align: center;
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: 16px;
+  margin-bottom: 6px;
   color: #ffd700;
   flex-shrink: 0;
   width: 100%;
@@ -242,58 +242,58 @@ main.game-container {
 
 #log-texto {
   overflow-y: auto;
-  padding-right: 8px;
+  padding-right: 6px;
   flex: 1;
   width: 100%;
 }
 
 #log-texto p {
-  margin: 0.4rem 0;
-  font-size: 0.85rem;
-  line-height: 1.3;
+  margin: 4px 0;
+  font-size: 13px;
+  line-height: 1.2;
 }
 
 #log-texto::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 #log-texto::-webkit-scrollbar-track {
   background: #013a35;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 #log-texto::-webkit-scrollbar-thumb {
   background-color: #00ffaa;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 2px solid #013a35;
 }
 
 /* Telas maiores que 600px */
 @media (min-width: 600px) {
   body {
-    padding: 1rem;
+    padding: 8px;
   }
 
   header {
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 12px;
+    margin-bottom: 12px;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 
   main.game-container {
-    gap: 2rem;
-    padding: 1rem;
+    gap: 16px;
+    padding: 8px;
   }
 
   #status-bar {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 12px;
+    margin: 8px 0;
   }
 
   .status-box {
@@ -304,34 +304,44 @@ main.game-container {
   .status-item {
     flex-direction: row;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 6px;
   }
 
   .status-item .emoji {
-    font-size: 1.4rem;
+    font-size: 20px;
   }
 
   .status-item .label {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .status-item .value {
-    font-size: 1.2rem;
+    font-size: 18px;
   }
 
   #actions {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 12px;
+    margin: 12px 0;
     max-width: 600px;
   }
 
   #actions button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.2rem;
+    padding: 10px 20px;
+    font-size: 18px;
     width: auto;
+  }
+
+  #restart-section {
+    max-width: 400px;
+    margin: 12px auto;
+  }
+
+  #btn-reiniciar {
+    padding: 12px 32px;
+    font-size: 20px;
   }
 
   #battlefield {
@@ -339,7 +349,7 @@ main.game-container {
   }
 
   .gorila {
-    width: 300px;
+    width: 250px;
   }
 
   .humano-img {
@@ -348,29 +358,20 @@ main.game-container {
   }
 
   #log {
-    padding: 1rem;
+    padding: 12px;
     max-width: 700px;
-    height: 150px;
-    max-height: 160px;
+    height: 120px;
+    max-height: 130px;
   }
 
   #log h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 8px;
   }
 
   #log-texto p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-
-  #restart-section {
-    max-width: 400px;
-  }
-
-  #btn-reiniciar {
-    padding: 1rem 3rem;
-    font-size: 1.3rem;
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.3;
   }
 }
