@@ -2,22 +2,31 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gorila vs 100 Humanos</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script defer src="assets/js/script.js"></script>
   </head>
   <body>
     <header>
-      <h1>🦍 Gorila x 100 Humanos</h1>
+      <h1>🦍 Gorila x 100 Humanos 🧍‍♂️</h1>
     </header>
 
     <main>
       <section id="status-bar">
         <div class="status-box">
-          <p>❤️ Vida do Gorila: <span id="vida-gorila">100</span></p>
+          <p>
+            <span class="emoji">❤️</span>
+            <span class="label">Vida do Gorila:</span>
+            <span id="vida-gorila" class="value">100</span>
+          </p>
         </div>
         <div class="status-box">
-          <p>🧍‍♂️ Humanos restantes: <span id="humanos-restantes">100</span></p>
+          <p>
+            <span class="emoji">🧍‍♂️</span>
+            <span class="label">Humanos restantes:</span>
+            <span id="humanos-restantes" class="value">100</span>
+          </p>
         </div>
       </section>
 
@@ -30,15 +39,13 @@
       <div class="game-container">
         <section id="battlefield">
           <div id="gorila-area">
-            <img
-              id="imagem-gorila"
-              src="assets/img/gorilla.png"
-              alt="Gorila"
-              class="gorila"
-            />
+            <img id="imagem-gorila" src="assets/img/gorilla.png" alt="Gorila" class="gorila ativo" />
+            <img id="imagem-gorila-soco" src="assets/img/soco.png" alt="Gorila Atacando" class="gorila" />
+            <img id="imagem-gorila-defendendo" src="assets/img/defendendo.png" alt="Gorila Defendendo" class="gorila" />
+            <img id="imagem-gorila-curando" src="assets/img/curando.jpeg" alt="Gorila Curando" class="gorila" />
           </div>
           <div id="humanos-area">
-            <!-- Os humanos serão renderizados aqui pelo JS futuramente -->
+            <!-- Humanos renderizados dinamicamente -->
           </div>
         </section>
 
