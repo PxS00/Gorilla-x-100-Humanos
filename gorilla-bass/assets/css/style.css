@@ -124,6 +124,45 @@ main.game-container {
   pointer-events: none;
 }
 
+#actions button.hidden {
+  display: none;
+}
+
+#restart-section {
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#restart-section.hidden {
+  display: none;
+}
+
+#btn-reiniciar {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#btn-reiniciar:hover:not(:disabled) {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#btn-reiniciar:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 #battlefield {
   display: flex;
   flex-direction: column;
@@ -324,5 +363,14 @@ main.game-container {
     margin: 0.5rem 0;
     font-size: 0.9rem;
     line-height: 1.4;
+  }
+
+  #restart-section {
+    max-width: 400px;
+  }
+
+  #btn-reiniciar {
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
   }
 }

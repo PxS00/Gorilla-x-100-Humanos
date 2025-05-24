@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayHumanos = document.getElementById("humanos-restantes");
   const logBatalha = document.getElementById("log-texto");
   const botoes = document.querySelectorAll("#actions button");
+  const btnReiniciar = document.getElementById("btn-reiniciar");
+  const restartSection = document.getElementById("restart-section");
 
   const imgGorila = document.getElementById("imagem-gorila");
   const imgSoco = document.getElementById("imagem-gorila-soco");
@@ -22,6 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const somCura = new Audio("assets/audio/cura.wav");
   const somDefesa = new Audio("assets/audio/defesa.ogg");
   const somSoco = new Audio("assets/audio/soco.wav");
+
+  function reiniciarJogo() {
+    vidaGorila = VIDA_MAXIMA;
+    humanos = Array.from({ length: 100 }, () => ({ vivo: true }));
+    ataquesFeitos = 0;
+    reducaoDano = 0;
+    jogoEncerrado = false;
+    emAcao = false;
+
+    // Limpar o log
+    logBatalha.innerHTML = "";
+
+    // Resetar imagens
+    trocarImagem(imgGorila);
+
+    // Atualizar interface
+    atualizarStatus();
+    toggleBotoes(false);
+    restartSection.classList.add("hidden");
+
+    adicionarLog("🔄 Jogo reiniciado! A batalha recomeça!");
+  }
 
   function atualizarStatus() {
     displayVida.textContent = vidaGorila;
@@ -173,11 +197,13 @@ document.addEventListener("DOMContentLoaded", () => {
         emAcao = true;
         toggleBotoes(true);
         adicionarLog("💀 Gorila derrotado! Fim do jogo.");
+        restartSection.classList.remove("hidden");
       } else if (humanosVivos === 0) {
         jogoEncerrado = true;
         emAcao = true;
         toggleBotoes(true);
         adicionarLog("🏆 Todos os humanos foram eliminados! O gorila venceu.");
+        restartSection.classList.remove("hidden");
       }
     }
   }
@@ -185,6 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-atacar").addEventListener("click", atacar);
   document.getElementById("btn-defender").addEventListener("click", defender);
   document.getElementById("btn-curar").addEventListener("click", curar);
+  btnReiniciar.addEventListener("click", reiniciarJogo);
 
+  // Inicializar o jogo
   atualizarStatus();
 });
