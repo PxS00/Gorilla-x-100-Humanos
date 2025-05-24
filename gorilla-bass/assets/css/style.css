@@ -91,6 +91,7 @@ main.game-container {
   flex-shrink: 0;
 }
 
+/* Container dos botões de ação */
 #actions {
   margin: 8px 0;
   display: flex;
@@ -100,6 +101,7 @@ main.game-container {
   max-width: 300px;
 }
 
+/* Estilo base para todos os botões */
 #actions button {
   border: none;
   padding: 12px;
@@ -108,6 +110,7 @@ main.game-container {
   transition: all 0.3s ease;
   width: 100%;
   position: relative;
+  /* Formato de explosão pontiagudo */
   clip-path: polygon(
     0% 20%,
     20% 0%,
@@ -126,6 +129,7 @@ main.game-container {
   font-weight: bold;
 }
 
+/* Efeito de borda interna */
 #actions button::before {
   content: "";
   position: absolute;
@@ -146,6 +150,7 @@ main.game-container {
   z-index: -1;
 }
 
+/* Botão de ataque - Vermelho */
 #btn-atacar {
   background-color: #ff2600;
 }
@@ -154,6 +159,7 @@ main.game-container {
   background-color: #ff4d4d;
 }
 
+/* Botão de defesa - Azul */
 #btn-defender {
   background-color: #0066ff;
 }
@@ -162,22 +168,26 @@ main.game-container {
   background-color: #3399ff;
 }
 
+/* Botão de cura - Verde escuro */
 #btn-curar {
-  background-color: #00cc00;
+  background-color: #006600;
 }
 
 #btn-curar::before {
-  background-color: #33ff33;
+  background-color: #009900;
 }
 
+/* Efeito hover - Levanta e aumenta levemente */
 #actions button:hover:not(:disabled) {
   transform: translateY(-2px) scale(1.05);
 }
 
+/* Efeito active - Volta ao normal e diminui levemente */
 #actions button:active:not(:disabled) {
   transform: translateY(0) scale(0.95);
 }
 
+/* Estado desabilitado */
 #actions button:disabled {
   background-color: #666;
   cursor: not-allowed;
@@ -189,19 +199,22 @@ main.game-container {
   background-color: #666;
 }
 
+/* Classe para desabilitar interação */
 #actions button.desabilitado {
   pointer-events: none;
 }
 
+/* Classe para esconder botão */
 #actions button.hidden {
   display: none;
 }
 
+/* Estilo dos ícones dentro dos botões */
 #actions button img {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1); /* Torna os ícones brancos */
 }
 
 #restart-section {
@@ -349,7 +362,7 @@ main.game-container {
   border: 2px solid #013a35;
 }
 
-/* Telas maiores que 600px */
+/* Estilos para telas maiores que 600px */
 @media (min-width: 600px) {
   body {
     padding: 8px;
