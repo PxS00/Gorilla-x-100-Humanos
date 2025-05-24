@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let ataquesFeitos = 0;
   let reducaoDano = 0;
   let jogoEncerrado = false;
+  let emAcao = false; // Novo estado para controlar ações
 
   const displayVida = document.getElementById("vida-gorila");
   const displayHumanos = document.getElementById("humanos-restantes");
   const logBatalha = document.getElementById("log-texto");
+  const botoes = document.querySelectorAll("#actions button");
 
   const imgGorila = document.getElementById("imagem-gorila");
   const imgSoco = document.getElementById("imagem-gorila-soco");
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function atualizarStatus() {
     displayVida.textContent = vidaGorila;
-    displayHumanos.textContent = humanos.filter(h => h.vivo).length;
+    displayHumanos.textContent = humanos.filter((h) => h.vivo).length;
     verificarFimDeJogo();
   }
 
@@ -33,17 +35,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function trocarImagem(ativa) {
-    [imgGorila, imgSoco, imgDefendendo, imgCurando].forEach(img => {
+    [imgGorila, imgSoco, imgDefendendo, imgCurando].forEach((img) => {
       img.classList.remove("ativo");
     });
     ativa.classList.add("ativo");
   }
 
+  function toggleBotoes(desabilitar) {
+    botoes.forEach((botao) => {
+      botao.disabled = desabilitar;
+      if (desabilitar) {
+        botao.classList.add("desabilitado");
+      } else {
+        botao.classList.remove("desabilitado");
+      }
+    });
+  }
+
   function atacar() {
-    if (jogoEncerrado) return;
+    if (jogoEncerrado || emAcao) return;
+
+    emAcao = true;
+    toggleBotoes(true);
+
     somSoco.play();
     trocarImagem(imgSoco);
-    setTimeout(() => trocarImagem(imgGorila), 1000);
 
     const quantidadeEliminados = Math.floor(Math.random() * 6) + 3;
     let eliminados = 0;
@@ -57,26 +73,42 @@ document.addEventListener("DOMContentLoaded", () => {
     ataquesFeitos++;
     adicionarLog(`🦍 Gorila atacou e eliminou ${eliminados} humano(s)!`);
     atualizarStatus();
-    setTimeout(humanosAtacam, 1000);
+
+    setTimeout(() => {
+      trocarImagem(imgGorila);
+      humanosAtacam();
+    }, 1000);
   }
 
   function defender() {
-    if (jogoEncerrado) return;
+    if (jogoEncerrado || emAcao) return;
+
+    emAcao = true;
+    toggleBotoes(true);
+
     somDefesa.play();
     trocarImagem(imgDefendendo);
-    setTimeout(() => trocarImagem(imgGorila), 1000);
 
     reducaoDano = Math.floor(Math.random() * 6) + 2;
-    adicionarLog(`🛡️ Gorila reduzirá ${reducaoDano} de dano no próximo ataque.`);
+    adicionarLog(
+      `🛡️ Gorila reduzirá ${reducaoDano} de dano no próximo ataque.`
+    );
     atualizarStatus();
-    setTimeout(humanosAtacam, 1000);
+
+    setTimeout(() => {
+      trocarImagem(imgGorila);
+      humanosAtacam();
+    }, 1000);
   }
 
   function curar() {
-    if (jogoEncerrado) return;
+    if (jogoEncerrado || emAcao) return;
+
+    emAcao = true;
+    toggleBotoes(true);
+
     somCura.play();
     trocarImagem(imgCurando);
-    setTimeout(() => trocarImagem(imgGorila), 1000);
 
     const cura = Math.floor(Math.random() * 8) + 5;
     const vidaAntes = vidaGorila;
@@ -84,14 +116,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const recuperado = vidaGorila - vidaAntes;
     adicionarLog(`❤️ Gorila se curou e recuperou ${recuperado} de vida.`);
     atualizarStatus();
-    setTimeout(humanosAtacam, 1000);
+
+    setTimeout(() => {
+      trocarImagem(imgGorila);
+      humanosAtacam();
+    }, 1000);
   }
 
   function humanosAtacam() {
     if (jogoEncerrado) return;
 
-    const vivos = humanos.filter(h => h.vivo);
-    if (vivos.length === 0 || vidaGorila <= 0) return;
+    const vivos = humanos.filter((h) => h.vivo);
+    if (vivos.length === 0 || vidaGorila <= 0) {
+      emAcao = false;
+      toggleBotoes(false);
+      return;
+    }
 
     let danoTotal = 0;
     const chanceAtaque = Math.min(0.08, vivos.length * 0.008);
@@ -116,17 +156,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     reducaoDano = 0;
     atualizarStatus();
+
+    // Adiciona um pequeno delay antes de liberar os botões
+    setTimeout(() => {
+      emAcao = false;
+      toggleBotoes(false);
+    }, 500);
   }
 
   function verificarFimDeJogo() {
-    const humanosVivos = humanos.filter(h => h.vivo).length;
+    const humanosVivos = humanos.filter((h) => h.vivo).length;
 
     if (!jogoEncerrado) {
       if (vidaGorila <= 0) {
         jogoEncerrado = true;
+        emAcao = true;
+        toggleBotoes(true);
         adicionarLog("💀 Gorila derrotado! Fim do jogo.");
       } else if (humanosVivos === 0) {
         jogoEncerrado = true;
+        emAcao = true;
+        toggleBotoes(true);
         adicionarLog("🏆 Todos os humanos foram eliminados! O gorila venceu.");
       }
     }
