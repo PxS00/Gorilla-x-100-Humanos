@@ -39,9 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Resetar imagens
     const todasImagens = document.querySelectorAll(".gorila");
     todasImagens.forEach((img) => {
+      img.style.display = "none";
       img.classList.remove("ativo");
     });
-    document.getElementById("imagem-gorila").classList.add("ativo");
+    const imgGorilaNormal = document.getElementById("imagem-gorila");
+    imgGorilaNormal.style.display = "block";
+    imgGorilaNormal.classList.add("ativo");
 
     // Atualizar interface
     atualizarStatus();
@@ -63,9 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function trocarImagem(ativa) {
-    [imgGorila, imgSoco, imgDefendendo, imgCurando].forEach((img) => {
+    const todasImagens = document.querySelectorAll(".gorila");
+    todasImagens.forEach((img) => {
+      img.style.display = "none";
       img.classList.remove("ativo");
     });
+    ativa.style.display = "block";
     ativa.classList.add("ativo");
   }
 
