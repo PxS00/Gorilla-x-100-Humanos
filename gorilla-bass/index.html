@@ -12,20 +12,20 @@
       <h1>🦍 Gorila x 100 Humanos 🧍‍♂️</h1>
     </header>
 
-    <main>
+    <main class="game-container">
       <section id="status-bar">
         <div class="status-box">
-          <p>
-            <span class="emoji">❤️</span>
-            <span class="label">Vida do Gorila:</span>
-            <span id="vida-gorila" class="value">100</span>
+          <p class="status-item">
+            <strong class="emoji">❤️</strong>
+            <strong class="label">Vida do Gorila:</strong>
+            <strong id="vida-gorila" class="value">100</strong>
           </p>
         </div>
         <div class="status-box">
-          <p>
-            <span class="emoji">🧍‍♂️</span>
-            <span class="label">Humanos restantes:</span>
-            <span id="humanos-restantes" class="value">100</span>
+          <p class="status-item">
+            <strong class="emoji">🧍‍♂️</strong>
+            <strong class="label">Humanos restantes:</strong>
+            <strong id="humanos-restantes" class="value">100</strong>
           </p>
         </div>
       </section>
@@ -36,24 +36,42 @@
         <button id="btn-curar">Curar</button>
       </section>
 
-      <div class="game-container">
-        <section id="battlefield">
-          <div id="gorila-area">
-            <img id="imagem-gorila" src="assets/img/gorilla.png" alt="Gorila" class="gorila ativo" />
-            <img id="imagem-gorila-soco" src="assets/img/soco.png" alt="Gorila Atacando" class="gorila" />
-            <img id="imagem-gorila-defendendo" src="assets/img/defendendo.png" alt="Gorila Defendendo" class="gorila" />
-            <img id="imagem-gorila-curando" src="assets/img/curando.jpeg" alt="Gorila Curando" class="gorila" />
-          </div>
-          <div id="humanos-area">
-            <!-- Humanos renderizados dinamicamente -->
-          </div>
-        </section>
+      <section id="battlefield">
+        <div id="gorila-area">
+          <img
+            id="imagem-gorila"
+            src="assets/img/gorilla.png"
+            alt="Gorila"
+            class="gorila ativo"
+          />
+          <img
+            id="imagem-gorila-soco"
+            src="assets/img/soco.png"
+            alt="Gorila Atacando"
+            class="gorila"
+          />
+          <img
+            id="imagem-gorila-defendendo"
+            src="assets/img/defendendo.png"
+            alt="Gorila Defendendo"
+            class="gorila"
+          />
+          <img
+            id="imagem-gorila-curando"
+            src="assets/img/curando.jpeg"
+            alt="Gorila Curando"
+            class="gorila"
+          />
+        </div>
+        <div id="humanos-area">
+          <!-- Humanos renderizados dinamicamente -->
+        </div>
+      </section>
 
-        <section id="log">
-          <h2>📜 Registro da Batalha</h2>
-          <div id="log-texto"></div>
-        </section>
-      </div>
+      <section id="log">
+        <h2>📜 Registro da Batalha</h2>
+        <div id="log-texto"></div>
+      </section>
     </main>
   </body>
 </html>
