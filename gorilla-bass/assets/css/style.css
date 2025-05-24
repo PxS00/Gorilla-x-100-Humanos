@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100vh;
   overflow: hidden;
 }
@@ -14,77 +15,101 @@ body {
   background: linear-gradient(to bottom, #004949, #0c2e2c);
   color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
 }
 
 header {
   background-color: #064c44;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.75rem;
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #ffd700;
+}
+
+main.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  overflow: auto;
+  padding: 0.5rem;
 }
 
 #status-bar {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
   align-items: center;
+  width: 100%;
 }
 
 .status-box {
   background-color: #013a35;
   border: 2px solid #00ffaa;
-  padding: 3px;
-  border-radius: 8px;
+  padding: 2px;
+  border-radius: 6px;
   width: 100%;
-  max-width: 250px;
+  max-width: 200px;
   text-align: center;
 }
 
-.status-box .value {
-  display: block;
-  font-weight: bold;
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.status-item .emoji {
   font-size: 1.2rem;
-  margin-top: 0.3rem;
+}
+
+.status-item .label {
+  font-size: 0.9rem;
+  color: #00ffaa;
+}
+
+.status-item .value {
+  font-size: 1.1rem;
+  color: #ffd700;
 }
 
 #actions {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 300px;
 }
 
 #actions button {
   background-color: #ffd700;
   color: #000;
   border: none;
-  padding: 3px;
-  border-radius: 6px;
-  font-size: 1.2rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 #actions button:hover {
   background-color: #ffa500;
+  transform: translateY(-2px);
 }
 
-.game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  flex: 1;
-  overflow: auto;
+#actions button:active {
+  transform: translateY(0);
 }
 
 #battlefield {
@@ -92,7 +117,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
+  gap: 1rem;
 }
 
 #gorila-area {
@@ -101,12 +127,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 250px;
 }
 
 .gorila {
-  width: 300px;
+  width: 250px;
   height: auto;
   display: none;
+  transition: transform 0.3s ease;
 }
 
 .gorila.ativo {
@@ -117,30 +145,34 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 2px;
+  padding: 0.5rem;
 }
 
 .humano-img {
-  width: 30px;
-  margin: 2px;
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
   filter: drop-shadow(1px 1px 1px black);
+  transition: all 0.3s ease;
 }
 
 .humano-derrotado {
   opacity: 0.3;
   filter: grayscale(100%);
+  transform: scale(0.9);
 }
 
 #log {
   background-color: #022723;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 0.75rem;
+  border-radius: 8px;
   border: 2px dashed #00ffaa;
   width: 100%;
-  max-width: 700px;
+  max-width: 500px;
   text-align: center;
-  height: 150px;
-  max-height: 160px;
+  height: 120px;
+  max-height: 130px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -150,8 +182,8 @@ h1 {
 
 #log h2 {
   text-align: center;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 8px;
   color: #ffd700;
   flex-shrink: 0;
   width: 100%;
@@ -159,56 +191,126 @@ h1 {
 
 #log-texto {
   overflow-y: auto;
-  padding-right: 10px;
+  padding-right: 8px;
   flex: 1;
   width: 100%;
 }
 
 #log-texto p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  margin: 0.4rem 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
 }
 
 #log-texto::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 #log-texto::-webkit-scrollbar-track {
   background: #013a35;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 #log-texto::-webkit-scrollbar-thumb {
   background-color: #00ffaa;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 2px solid #013a35;
 }
 
-/* Telas maiores */
-@media (min-width: 768px) {
+/* Telas maiores que 600px */
+@media (min-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  main.game-container {
+    gap: 2rem;
+    padding: 1rem;
+  }
+
   #status-bar {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .status-box {
+    width: 180px;
+    padding: 3px;
+  }
+
+  .status-item {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .status-item .emoji {
+    font-size: 1.4rem;
+  }
+
+  .status-item .label {
+    font-size: 1rem;
+  }
+
+  .status-item .value {
+    font-size: 1.2rem;
   }
 
   #actions {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    max-width: 600px;
   }
 
   #actions button {
-    max-width: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
     width: auto;
   }
 
-  .status-box {
-    width: 215px;
+  #battlefield {
+    max-width: 500px;
   }
 
-  h1 {
-    font-size: 2rem;
+  .gorila {
+    width: 300px;
+  }
+
+  .humano-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #log {
+    padding: 1rem;
+    max-width: 700px;
+    height: 150px;
+    max-height: 160px;
+  }
+
+  #log h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #log-texto p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
