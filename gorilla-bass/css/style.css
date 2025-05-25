@@ -10,7 +10,6 @@
 html,
 body {
   height: 100vh;
-  overflow: hidden;
 }
 
 /* Estilo base do body com gradiente de fundo e layout flexível */
