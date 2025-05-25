@@ -1,110 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <!-- Configurações básicas do documento -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gorila vs 100 Humanos</title>
-    <!-- Importação dos arquivos CSS e JavaScript -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script defer src="assets/js/script.js"></script>
-  </head>
-  <body>
-    <!-- Cabeçalho do jogo com o título principal -->
-    <header>
-      <h1>🦍 Gorila x 100 Humanos 🧍‍♂️</h1>
-    </header>
 
-    <!-- Container principal do jogo -->
-    <main class="game-container">
-      <!-- Barra de status mostrando vida do gorila e humanos restantes -->
-      <section id="status-bar">
-        <div class="status-box">
-          <div class="status-item">
-            <span class="emoji">❤️</span>
-            <span class="label">Vida do Gorila</span>
-            <span class="value" id="vida-gorila">100</span>
-          </div>
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorila vs 100 Humanos</title>
+  <!-- Importação dos arquivos CSS e JavaScript -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/script.js"></script>
+</head>
+
+<body>
+  <!-- Cabeçalho do jogo com o título principal -->
+  <header>
+    <h1>🦍 Gorila x 100 Humanos 🧍‍♂️</h1>
+  </header>
+
+  <!-- Container principal do jogo -->
+  <main class="game-container">
+    <!-- Barra de status mostrando vida do gorila e humanos restantes -->
+    <section id="status-bar">
+      <div class="status-box">
+        <div class="status-item">
+          <span class="emoji">❤️</span>
+          <span class="label">Vida do Gorila</span>
+          <span class="value" id="vida-gorila">100</span>
         </div>
-        <div class="status-box">
-          <div class="status-item">
-            <span class="emoji">🧍‍♂️</span>
-            <span class="label">Humanos Restantes</span>
-            <span class="value" id="humanos-restantes">100</span>
-          </div>
+      </div>
+      <div class="status-box">
+        <div class="status-item">
+          <span class="emoji">🧍‍♂️</span>
+          <span class="label">Humanos Restantes</span>
+          <span class="value" id="humanos-restantes">100</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Seção dos botões de ação do jogador -->
-      <section id="actions">
-        <button id="btn-atacar">
-          <img src="assets/img/botao/btn-soco.png" alt="Atacar" />
-        </button>
-        <button id="btn-defender">
-          <img src="assets/img/botao/btn-defesa.png" alt="Defender" />
-        </button>
-        <button id="btn-curar">
-          <img src="assets/img/botao/btn-cura.png" alt="Curar" />
-        </button>
-      </section>
+    <!-- Seção dos botões de ação do jogador -->
+    <section id="actions">
+      <button id="btn-atacar">
+        <img src="assets/img/botao/btn-soco.png" alt="Atacar" />
+      </button>
+      <button id="btn-defender">
+        <img src="assets/img/botao/btn-defesa.png" alt="Defender" />
+      </button>
+      <button id="btn-curar">
+        <img src="assets/img/botao/btn-cura.png" alt="Curar" />
+      </button>
+    </section>
 
-      <!-- Seção do botão de reiniciar (inicialmente oculta) -->
-      <section id="restart-section" class="hidden">
-        <button id="btn-reiniciar">Reiniciar Jogo</button>
-      </section>
+    <!-- Área de batalha onde o gorila e os humanos são exibidos -->
+    <section id="battlefield">
+      <!-- Área do gorila com diferentes estados de animação -->
+      <div id="gorila-area">
+        <img id="imagem-gorila" src="assets/img/gorila/gorila.png" alt="Gorila" class="gorila ativo" />
+        <img id="imagem-gorila-soco" src="assets/img/gorila/gorila-soco.png" alt="Gorila Socando" class="gorila" />
+        <img id="imagem-gorila-defendendo" src="assets/img/gorila/gorila-defesa.png" alt="Gorila Defendendo"
+          class="gorila" />
+        <img id="imagem-gorila-curando" src="assets/img/gorila/gorila-cura.jpeg" alt="Gorila Curando" class="gorila" />
+        <img id="imagem-gorila-vitoria" src="assets/img/gorila/gorila-vitoria.png" alt="Gorila Vitorioso"
+          class="gorila" />
+        <img id="imagem-gorila-derrota" src="assets/img/gorila/gorila-derrota.png" alt="Gorila Derrotado"
+          class="gorila" />
+      </div>
+      <!-- Área onde os humanos serão renderizados dinamicamente via JavaScript -->
+      <div id="humanos-area">
+        <!-- Humanos renderizados dinamicamente -->
+      </div>
+    </section>
 
-      <!-- Área de batalha onde o gorila e os humanos são exibidos -->
-      <section id="battlefield">
-        <!-- Área do gorila com diferentes estados de animação -->
-        <div id="gorila-area">
-          <img
-            id="imagem-gorila"
-            src="assets/img/gorila/gorila.png"
-            alt="Gorila"
-            class="gorila ativo"
-          />
-          <img
-            id="imagem-gorila-soco"
-            src="assets/img/gorila/gorila-soco.png"
-            alt="Gorila Socando"
-            class="gorila"
-          />
-          <img
-            id="imagem-gorila-defendendo"
-            src="assets/img/gorila/gorila-defesa.png"
-            alt="Gorila Defendendo"
-            class="gorila"
-          />
-          <img
-            id="imagem-gorila-curando"
-            src="assets/img/gorila/gorila-cura.jpeg"
-            alt="Gorila Curando"
-            class="gorila"
-          />
-          <img
-            id="imagem-gorila-vitoria"
-            src="assets/img/gorila/gorila-vitoria.png"
-            alt="Gorila Vitorioso"
-            class="gorila"
-          />
-          <img
-            id="imagem-gorila-derrota"
-            src="assets/img/gorila/gorila-derrota.png"
-            alt="Gorila Derrotado"
-            class="gorila"
-          />
-        </div>
-        <!-- Área onde os humanos serão renderizados dinamicamente via JavaScript -->
-        <div id="humanos-area">
-          <!-- Humanos renderizados dinamicamente -->
-        </div>
-      </section>
+    <!-- Seção de log que mostra o histórico de ações da batalha -->
+    <section id="log">
+      <h2>📜 Registro da Batalha</h2>
+      <div id="log-texto"></div>
+    </section>
 
-      <!-- Seção de log que mostra o histórico de ações da batalha -->
-      <section id="log">
-        <h2>📜 Registro da Batalha</h2>
-        <div id="log-texto"></div>
-      </section>
-    </main>
-  </body>
+    <!-- Seção do botão de reiniciar (inicialmente oculta) -->
+    <section id="restart-section" class="hidden">
+      <button id="btn-reiniciar">Reiniciar Jogo</button>
+    </section>
+
+  </main>
+</body>
+
 </html>
