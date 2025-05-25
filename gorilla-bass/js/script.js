@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // setTimeout(() => {
     //   trocarImagem(imgGorila);
     //   humanosAtacam();
-    // }, 1000);
+    // }, 500);
     setTimeout(() => {
     if (!jogoEncerrado) {
       trocarImagem(imgGorila);
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       emAcao = false;
       toggleBotoes(false);
-    }, 500);
+    }, 1000);
   }
 
   // Verifica se o jogo chegou ao fim

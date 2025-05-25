@@ -65,16 +65,17 @@ main.game-container {
 .status-box {
   background-color: #013a35;
   border: 2px solid #00ffaa;
-  padding: 16px;
+  padding: 8px;
   border-radius: 6px;
   width: 100%;
-  max-width: 340px;
-  min-width: 280px;
+  max-width: 260px;
+  min-width: 180px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 
 /* Item de status com emoji, label e valor */
 .status-item {
@@ -88,20 +89,20 @@ main.game-container {
 
 /* Tamanho e estilo do emoji */
 .status-item .emoji {
-  font-size: 18px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
 /* Label do status com cor ciano */
 .status-item .label {
-  font-size: 14px;
+  font-size: 12px;
   color: #00ffaa;
   flex-shrink: 0;
 }
 
 /* Valor do status com cor dourada */
 .status-item .value {
-  font-size: 16px;
+  font-size: 14px;
   color: #ffd700;
   flex-shrink: 0;
 }
@@ -111,22 +112,27 @@ main.game-container {
 #actions {
   margin: 8px 0;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 100%;
 }
+
 
 /* Estilo base para todos os botões */
 #actions button {
   border: none;
-  padding: 12px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
+  flex: 1 1 30%;
+  min-width: 90px;
+  max-width: 120px;
+  height: 56px;
   position: relative;
-  /* Formato de explosão pontiagudo */
   clip-path: polygon(
     0% 20%,
     20% 0%,
@@ -140,11 +146,9 @@ main.game-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60px;
   color: white;
   font-weight: bold;
 }
-
 /* Efeito de borda interna */
 #actions button::before {
   content: "";
@@ -225,12 +229,12 @@ main.game-container {
   display: none;
 }
 
-/* Estilo dos ícones dentro dos botões */
+/* Ícones nos botões */
 #actions button img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* Torna os ícones brancos */
+  filter: brightness(0) invert(1);
 }
 
 /* ===== SEÇÃO DE REINÍCIO ===== */
@@ -290,12 +294,13 @@ main.game-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 /* Estilo base das imagens do gorila */
 .gorila {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   display: none;
   transition: all 0.3s ease;
@@ -357,117 +362,273 @@ main.game-container {
   border-radius: 4px;
 }
 
-/* ===== MEDIA QUERIES ===== */
-/* Ajustes para telas maiores que 600px */
 @media (min-width: 600px) {
-  /* Ajustes no body */
   body {
     padding: 8px;
   }
 
-  /* Ajustes no cabeçalho */
   header {
     padding: 12px;
     margin-bottom: 12px;
   }
 
-  /* Ajustes no título */
   h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
-  /* Ajustes no container principal */
   main.game-container {
     gap: 16px;
     padding: 8px;
   }
 
-  /* Ajustes na barra de status */
   #status-bar {
     flex-direction: row;
     justify-content: center;
     gap: 16px;
   }
 
-  /* Ajustes nas caixas de status */
   .status-box {
-    min-width: 200px;
+    min-width: 180px;
+    max-width: 220px;
   }
 
-  /* Ajustes nos itens de status */
-  .status-item {
-    gap: 12px;
-  }
-
-  /* Ajustes nos emojis */
   .status-item .emoji {
-    font-size: 24px;
-  }
-
-  /* Ajustes nos labels */
-  .status-item .label {
-    font-size: 16px;
-  }
-
-  /* Ajustes nos valores */
-  .status-item .value {
     font-size: 20px;
   }
 
-  /* Ajustes nos botões de ação */
+  .status-item .label {
+    font-size: 14px;
+  }
+
+  .status-item .value {
+    font-size: 16px;
+  }
+
   #actions {
-    flex-direction: row;
-    justify-content: center;
-    max-width: 600px;
-  }
-
-  /* Ajustes nos botões */
-  #actions button {
-    min-height: 80px;
-  }
-
-  /* Ajustes nos ícones */
-  #actions button img {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Ajustes na seção de reinício */
-  #restart-section {
     max-width: 400px;
   }
 
-  /* Ajustes no botão de reiniciar */
-  #btn-reiniciar {
-    padding: 16px 32px;
+  #actions button {
+    height: 64px;
+  }
+
+  #actions button img {
+    width: 32px;
+    height: 32px;
+  }
+
+  #gorila-area {
+    width: 220px;
+    height: 220px;
+  }
+
+  .gorila {
+    width: 240px;
+    height: 240px;
+  }
+
+  #log {
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 768px) {
+  main.game-container {
+    gap: 20px;
+    padding: 8px;
+  }
+
+  #status-bar {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .status-box {
+    max-width: 220px;
+    padding: 8px;
+  }
+
+  .status-item .emoji {
     font-size: 18px;
   }
 
-  /* Ajustes na área de batalha */
+  .status-item .label {
+    font-size: 14px;
+  }
+
+  .status-item .value {
+    font-size: 16px;
+  }
+
+  #actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+  }
+
+  #actions button {
+    height: 60px;
+    font-size: 13px;
+    padding: 8px;
+    min-width: 90px;
+    max-width: 130px;
+  }
+
+  #actions button img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .gorila {
+    width: 250px;
+    height: 250px;
+  }
+
+  #gorila-area {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 12px;
+  }
+
+  #log {
+    max-width: 340px;
+    padding: 10px;
+  }
+
+  #log h2 {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  #log-texto {
+    font-size: 13px;
+    max-height: 120px;
+    line-height: 1.4;
+  }
+
+  #log-texto p {
+    margin: 3px 0;
+  }
+
+  #btn-reiniciar {
+    font-size: 16px;
+    padding: 12px 28px;
+  }
+}
+
+@media (min-width: 992px) {
   #battlefield {
     flex-direction: row;
     justify-content: center;
     gap: 32px;
   }
 
-  /* Ajustes nas imagens do gorila */
   .gorila {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
   }
 
-  /* Ajustes no log */
-  #log {
+  #actions button {
+    height: 72px;
+  }
+
+  #actions button img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #status-bar {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1300px) {
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  main.game-container {
+    padding: 16px;
+    gap: 28px;
+  }
+
+  /* Caixas de status mais enxutas */
+  .status-box {
+    max-width: 220px;
+    padding: 6px;
+  }
+
+  .status-item .emoji {
+    font-size: 16px;
+  }
+
+  .status-item .label {
+    font-size: 13px;
+  }
+
+  .status-item .value {
+    font-size: 14px;
+  }
+
+  /* Botões um pouco menores */
+  #actions {
     max-width: 600px;
+    gap: 10px;
   }
 
-  /* Ajustes no título do log */
+  #actions button {
+    height: 60px;
+    font-size: 13px;
+    padding: 8px;
+    min-width: 100px;
+    max-width: 130px;
+  }
+
+  #actions button img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Gorila menor */
+  .gorila {
+    width: 220px;
+    height: 220px;
+  }
+
+  #gorila-area {
+    width: 215px;
+    height: 215px;
+    margin-bottom: 12px;
+  }
+
+  /* Log mais largo e com melhor leitura */
+  #log {
+    max-width: 500px;
+    padding: 12px;
+  }
+
   #log h2 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 6px;
   }
 
-  /* Ajustes nos parágrafos do log */
+  #log-texto {
+    font-size: 14px;
+    max-height: 140px;
+    line-height: 1.5;
+  }
+
   #log-texto p {
+    margin: 3px 0;
+  }
+
+  /* Botão reiniciar ajustado */
+  #btn-reiniciar {
+    padding: 12px 30px;
     font-size: 16px;
   }
 }
