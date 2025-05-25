@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-curar").addEventListener("click", curar);
   btnReiniciar.addEventListener("click", reiniciarJogo);
 
-  // Inicializa o jogo
+
   carregarEstadoJogo(); // Carrega o estado salvo primeiro
   atualizarStatus(); // Atualiza a interface
 });
