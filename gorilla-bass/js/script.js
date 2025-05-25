@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     restartSection.classList.add("hidden");
 
     adicionarLog("🔄 Jogo reiniciado! A batalha recomeça!");
+    limparEstadoSalvo();
   }
 
   // Atualiza os displays de vida e humanos restantes
@@ -122,17 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarStatus();
 
     // Retorna ao estado normal após 1 segundo
-    // setTimeout(() => {
-    //   trocarImagem(imgGorila);
-    //   humanosAtacam();
-    // }, 500);
     setTimeout(() => {
     if (!jogoEncerrado) {
       trocarImagem(imgGorila);
     }
     humanosAtacam();
   }, 1000);
-
+    salvarAposAcao();
   }
 
   // Função de defesa do gorila
@@ -159,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     humanosAtacam();
   }, 1000);
+    salvarAposAcao();
   }
 
   // Função de cura do gorila
@@ -186,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     humanosAtacam();
   }, 1000);
+    salvarAposAcao();
   }
 
   // Função que controla o ataque dos humanos
@@ -266,4 +265,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inicializa o jogo
   atualizarStatus();
+  carregarEstadoJogo();
 });
+
+// Função para salvar o estado do jogo
+function salvarEstadoJogo() {
+  const estadoJogo = {
+    vidaGorila,
+    humanos,
+    ataquesFeitos,
+    reducaoDano,
+    jogoEncerrado,
+    emAcao,
+    logBatalha: logBatalha.innerHTML
+  };
+  localStorage.setItem('gorilaVsHumanos', JSON.stringify(estadoJogo));
+}
+
+// Função para carregar o estado do jogo
+function carregarEstadoJogo() {
+  const estadoSalvo = localStorage.getItem('gorilaVsHumanos');
+  if (estadoSalvo) {
+    const estado = JSON.parse(estadoSalvo);
+    vidaGorila = estado.vidaGorila;
+    humanos = estado.humanos;
+    ataquesFeitos = estado.ataquesFeitos;
+    reducaoDano = estado.reducaoDano;
+    jogoEncerrado = estado.jogoEncerrado;
+    emAcao = estado.emAcao;
+    logBatalha.innerHTML = estado.logBatalha;
+    
+    atualizarStatus();
+    if (jogoEncerrado) {
+      toggleBotoes(true);
+      restartSection.classList.remove("hidden");
+    }
+  }
+}
+
+// Função para limpar o estado salvo
+function limparEstadoSalvo() {
+  localStorage.removeItem('gorilaVsHumanos');
+}
+
+// Adicionar salvamento automático após cada ação
+function salvarAposAcao() {
+  salvarEstadoJogo();
+}
