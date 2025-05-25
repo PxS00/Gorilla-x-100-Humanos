@@ -122,10 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarStatus();
 
     // Retorna ao estado normal após 1 segundo
+    // setTimeout(() => {
+    //   trocarImagem(imgGorila);
+    //   humanosAtacam();
+    // }, 1000);
     setTimeout(() => {
+    if (!jogoEncerrado) {
       trocarImagem(imgGorila);
-      humanosAtacam();
-    }, 1000);
+    }
+    humanosAtacam();
+  }, 1000);
+
   }
 
   // Função de defesa do gorila
@@ -147,9 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Retorna ao estado normal após 1 segundo
     setTimeout(() => {
+    if (!jogoEncerrado) {
       trocarImagem(imgGorila);
-      humanosAtacam();
-    }, 1000);
+    }
+    humanosAtacam();
+  }, 1000);
   }
 
   // Função de cura do gorila
@@ -172,9 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Retorna ao estado normal após 1 segundo
     setTimeout(() => {
+    if (!jogoEncerrado) {
       trocarImagem(imgGorila);
-      humanosAtacam();
-    }, 1000);
+    }
+    humanosAtacam();
+  }, 1000);
   }
 
   // Função que controla o ataque dos humanos
